@@ -1,0 +1,54 @@
+:root{
+    --grid-row: 1;
+    --grid-col: 1;
+}
+
+body{
+    background-color: black;
+}
+
+.main{
+    display: flex;
+    
+}
+
+.container{
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 8px;
+    padding: 8px;
+}
+
+.content{
+    display: flex;
+    flex-grow: 1;
+    justify-content: center;
+    align-items: center;
+}
+
+.option {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 8px;
+    padding: 8px;
+}
+
+
+
+.board {
+    width: 720px;
+    height: 720px;
+    background-color: lightgray;
+    display: grid;
+    grid-template-columns: repeat(var(--grid-col), 1fr);
+    grid-template-rows: repeat(var(--grid-row), 1fr);
+}
+
+button {
+    padding: 8px;
+}
