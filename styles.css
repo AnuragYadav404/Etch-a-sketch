@@ -49,6 +49,11 @@ body{
     grid-template-rows: repeat(var(--grid-row), 1fr);
 }
 
-button {
+
+.resize {
     padding: 8px;
+    margin: 8px;
+    font-size: 24px;
+    background-color: black;
+    color: greenyellow;
 }

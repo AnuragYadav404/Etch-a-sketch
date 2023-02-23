@@ -1,8 +1,28 @@
 
 
 const board = document.querySelector('.board');
-const btn = document.querySelector('.btn');
-btn.addEventListener('click', reset);
+
+
+
+const gridSize = document.querySelector('#grid-resize');
+const outputSize = document.querySelector('.resize-output');
+outputSize.textContent = gridSize.value;
+gridSize.addEventListener('input', () => {
+    outputSize.textContent = gridSize.value;
+})
+
+gridSize.addEventListener('input',reset);
+
+const gridSizeValue = gridSize.value;
+console.log(gridSizeValue)
+
+function reset() {
+    let dim = outputSize.textContent;
+    removeCells();
+    makeGrid(dim, dim);
+    flair();
+}
+
 
 
 function makeGrid(rows, cols) {
@@ -27,16 +47,6 @@ function action(e){
     this.style.setProperty('background-color','gold');   
 }
 
-function reset(e){
-    let rows = Math.floor(prompt("Enter the number of rows", 16));
-    let cols = Math.floor(prompt("Enter the number of Columns", 16));
-    rows = rows>100 ? 100 : rows;
-    cols = cols>100 ? 100 : cols;
-
-    removeCells();
-    makeGrid(rows, cols);
-    flair();
-}
 
 
 
@@ -48,8 +58,5 @@ function flair(){
 }
 
 
-
-
-
-makeGrid(16, 16);
+makeGrid(gridSizeValue, gridSizeValue);
 flair();
