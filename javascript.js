@@ -20,20 +20,30 @@ function reset() {
     let dim = outputSize.textContent;
     removeCells();
     makeGrid(dim, dim);
-    flair();
 }
 
 
 
 function makeGrid(rows, cols) {
+
     board.style.setProperty('--grid-row', rows);
     board.style.setProperty('--grid-col', cols);
     board.style.backgroundColor = 'teal';
+
     // console.log(board.style)
+
     for(let i=0;i<(rows*cols);i++) {
         let cell = document.createElement('div');
         board.appendChild(cell).classList = 'grid-item';
     }
+
+    //flair
+
+    let cells = document.querySelectorAll('.grid-item');
+    cells.forEach(cell=>{
+        cell.addEventListener('mouseover', action);
+})
+    
 }
 
 function removeCells(e){
@@ -49,14 +59,4 @@ function action(e){
 
 
 
-
-function flair(){
-    let cells = document.querySelectorAll('.grid-item');
-    cells.forEach(cell=>{
-        cell.addEventListener('mouseover', action);
-})
-}
-
-
 makeGrid(gridSizeValue, gridSizeValue);
-flair();
